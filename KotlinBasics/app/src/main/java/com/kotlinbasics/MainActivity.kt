@@ -27,6 +27,19 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        week03Variabes()
+    }
+
+    private fun week03Variabes() {
+        println("Week 03: Variables")
+
+        val courseName = "Moblie Programming" // java final
+        // courseName = "date" // 에러
+
+        var week = 2
+        week = 3
+        println("Course : $courseName")
+        println("Week : $week")
     }
 }
 
