@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         week03Variabes()
+        week03Function()
     }
 
     private fun week03Variabes() {
@@ -61,15 +62,30 @@ class MainActivity : ComponentActivity() {
         nickName = "mirae"
         println("NickName: $nickName ${nickName?.length}")
 
-        println("========= Kotlin Function =========")
+    }
+    private fun week03Functions(){
+//    println("Week 03: Functions")
+//
+//    fun greet(name: String) = "Hello, $name!"
+//
+//    println(greet("Android developer"))
+
+        println("== Kotlin Functions ==")
 
         fun greet(name: String): String {
-            return "Hello $name!"
+            return "Hello, $name!"
         }
 
         fun add(a: Int, b: Int) = a + b
 
+        fun introduce(name: String, age: Int = 19){
+            println("My name is $name and I'm $age years old")
+        }
 
+        println(greet("Kotlin"))
+        println("Sum: ${add(5, -71)}")
+        introduce("Kim", 7)
+        introduce("Park")
     }
 }
 
