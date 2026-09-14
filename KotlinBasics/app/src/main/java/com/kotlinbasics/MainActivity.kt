@@ -40,6 +40,36 @@ class MainActivity : ComponentActivity() {
         week = 3
         println("Course : $courseName")
         println("Week : $week")
+
+        println("========= Kotlin Variables =========")
+
+        // val(immutable) vs var(mutable)
+        val name = "Android"
+        var version = 8
+        println("Hi $name $version")
+
+        val age: Int = 24
+        val height: Double = 177.5
+        val isStudent: Boolean = false
+
+        println("age: $age")
+        println("height: $height")
+        println("isStudent: $isStudent")
+
+        // var nickName:String = null
+        var nickName:String? = null
+        nickName = "mirae"
+        println("NickName: $nickName ${nickName?.length}")
+
+        println("========= Kotlin Function =========")
+
+        fun greet(name: String): String {
+            return "Hello $name!"
+        }
+
+        fun add(a: Int, b: Int) = a + b
+
+
     }
 }
 
