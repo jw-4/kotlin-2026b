@@ -27,48 +27,91 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-//        week03Variabes()
-       week03Functions()
+       // week03Variabes()
+       // week03Functions()
+       // week04Classes()
+        week04Collections()
     }
+}
 
-//    private fun week03Variabes() {
-//        println("Week 03: Variables")
-//
-//        val courseName = "Moblie Programming" // java final
-//        // courseName = "date" // 에러
-//
-//        var week = 2
-//        week = 3
-//        println("Course : $courseName")
-//        println("Week : $week")
-//
-//        println("========= Kotlin Variables =========")
-//
-//        // val(immutable) vs var(mutable)
-//        val name = "Android"
-//        var version = 8
-//        println("Hi $name $version")
-//
-//        val age: Int = 24
-//        val height: Double = 177.5
-//        val isStudent: Boolean = false
-//
-//        println("age: $age")
-//        println("height: $height")
-//        println("isStudent: $isStudent")
-//
-//        // var nickName:String = null
-//        var nickName:String? = null
-//        nickName = "mirae"
-//        println("NickName: $nickName ${nickName?.length}")
-//
-//    }
+private fun week04Collections() {
+    println("===== Kotlin Collections =====")
+
+    val fruits = listOf("apple", "banana", "orange") // 수정불가(읽기전용)
+    val mutableFruits = mutableListOf("kiwu", "watermelon") // 수정가능
+
+//    fruits.add("kiwi") immutable
+    println("Fruits: $fruits")
+    mutableFruits.add("banana")
+    println("Mutable fruits: $mutableFruits")
+
+}
+    private fun week04Classes() {
+
+    class Student {
+        var name: String = ""
+        var age: Int = 0
+
+        fun introduce(){
+            println("Hi, I'm $name and I'm $age years old")
+        }
+    } // 첫 번째 방법
+
+        var student1 = Student()
+        student1.name = "Mirae"
+        student1.age = 21
+        student1.introduce()
+
+        data class Person(val name: String, val age: Int) // 두 번째 방법
+
+        val Person1 = Person("kim", 23)
+        val Person2 = Person("lee", 25)
+
+        println("Person1 : $Person1")
+        println("Person1 : ${Person1.name}")
+        println("Person1 : ${Person1.age}")
+        println("Person2 : $Person2")
+}
+
+    private fun week03Variabes() {
+        println("Week 03: Variables")
+
+        val courseName = "Moblie Programming" // java final
+        // courseName = "date" // 에러
+
+        var week = 2
+        week = 3
+        println("Course : $courseName")
+        println("Week : $week")
+
+        println("========= Kotlin Variables =========")
+
+        // val(immutable) vs var(mutable)
+        val name = "Android"
+        var version = 8
+        println("Hi $name $version")
+
+        val age: Int = 24
+        val height: Double = 177.5
+        val isStudent: Boolean = false
+
+        println("age: $age")
+        println("height: $height")
+        println("isStudent: $isStudent")
+
+        // var nickName:String = null
+        var nickName:String? = null
+        nickName = "mirae"
+        println("NickName: $nickName ${nickName?.length}")
+
+
+        }
     private fun week03Functions(){
-//    println("Week 03: Functions")
-//
-//    fun greet(name: String) = "Hello, $name!"
-//
-//    println(greet("Android developer"))
+    println("Week 03: Functions")
+
+    // fun greet(name: String) = "Hello, $name!"
+
+    // println(greet("Android developer"))
 
         println("== Kotlin Functions ==")
 
@@ -87,22 +130,22 @@ class MainActivity : ComponentActivity() {
 
         printMany("A", "B", "C", "D")
 
-//        fun greet(name: String): String {
-//            return "Hello, $name!"
-//        }
-//
-//        fun add(a: Int, b: Int) = a + b
-//
-//        fun introduce(name: String, age: Int = 19){
-//            println("My name is $name and I'm $age years old")
-//        }
-//
-//        println(greet("Kotlin"))
-//        println("Sum: ${add(5, -71)}")
-//        introduce("Kim", 7)
-//        introduce("Park")
+    fun greet(name: String): String {
+            return "Hello, $name!"
+        }
+
+        fun add(a: Int, b: Int) = a + b
+
+        fun introduce(name: String, age: Int = 19){
+            println("My name is $name and I'm $age years old")
+        }
+
+        println(greet("Kotlin"))
+        println("Sum: ${add(5, -71)}")
+        introduce("Kim", 7)
+        introduce("Park")
     }
-}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
