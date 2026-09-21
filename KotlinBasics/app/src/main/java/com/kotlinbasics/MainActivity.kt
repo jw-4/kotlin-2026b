@@ -27,42 +27,42 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        week03Variabes()
-        week03Functions()
+//        week03Variabes()
+       week03Functions()
     }
 
-    private fun week03Variabes() {
-        println("Week 03: Variables")
-
-        val courseName = "Moblie Programming" // java final
-        // courseName = "date" // 에러
-
-        var week = 2
-        week = 3
-        println("Course : $courseName")
-        println("Week : $week")
-
-        println("========= Kotlin Variables =========")
-
-        // val(immutable) vs var(mutable)
-        val name = "Android"
-        var version = 8
-        println("Hi $name $version")
-
-        val age: Int = 24
-        val height: Double = 177.5
-        val isStudent: Boolean = false
-
-        println("age: $age")
-        println("height: $height")
-        println("isStudent: $isStudent")
-
-        // var nickName:String = null
-        var nickName:String? = null
-        nickName = "mirae"
-        println("NickName: $nickName ${nickName?.length}")
-
-    }
+//    private fun week03Variabes() {
+//        println("Week 03: Variables")
+//
+//        val courseName = "Moblie Programming" // java final
+//        // courseName = "date" // 에러
+//
+//        var week = 2
+//        week = 3
+//        println("Course : $courseName")
+//        println("Week : $week")
+//
+//        println("========= Kotlin Variables =========")
+//
+//        // val(immutable) vs var(mutable)
+//        val name = "Android"
+//        var version = 8
+//        println("Hi $name $version")
+//
+//        val age: Int = 24
+//        val height: Double = 177.5
+//        val isStudent: Boolean = false
+//
+//        println("age: $age")
+//        println("height: $height")
+//        println("isStudent: $isStudent")
+//
+//        // var nickName:String = null
+//        var nickName:String? = null
+//        nickName = "mirae"
+//        println("NickName: $nickName ${nickName?.length}")
+//
+//    }
     private fun week03Functions(){
 //    println("Week 03: Functions")
 //
@@ -72,20 +72,35 @@ class MainActivity : ComponentActivity() {
 
         println("== Kotlin Functions ==")
 
-        fun greet(name: String): String {
-            return "Hello, $name!"
+        fun printAll(vip: Boolean, name : String){
+            println("$vip, $name")
         }
 
-        fun add(a: Int, b: Int) = a + b
+    fun printMany(vararg msg : String){ // variable arguments
+        for(m in msg) println(m)
+    }
 
-        fun introduce(name: String, age: Int = 19){
-            println("My name is $name and I'm $age years old")
-        }
 
-        println(greet("Kotlin"))
-        println("Sum: ${add(5, -71)}")
-        introduce("Kim", 7)
-        introduce("Park")
+        // 순서 상관 없음
+        printAll(true, "dy")
+        printAll(name = "mirae", vip = true) // named arguments
+
+        printMany("A", "B", "C", "D")
+
+//        fun greet(name: String): String {
+//            return "Hello, $name!"
+//        }
+//
+//        fun add(a: Int, b: Int) = a + b
+//
+//        fun introduce(name: String, age: Int = 19){
+//            println("My name is $name and I'm $age years old")
+//        }
+//
+//        println(greet("Kotlin"))
+//        println("Sum: ${add(5, -71)}")
+//        introduce("Kim", 7)
+//        introduce("Park")
     }
 }
 
