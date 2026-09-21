@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         week03Variabes()
-        week03Function()
+        week03Functions()
     }
 
     private fun week03Variabes() {
