@@ -1,6 +1,7 @@
 package com.kotlinbasics
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -27,135 +28,120 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-       // week03Variabes()
-       // week03Functions()
-       // week04Classes()
-        week04Collections()
+//        week03Variables()
+//        week03Functions()
+        week04Classes()
+//        week04Collections()
     }
 }
 
-private fun week04Collections() {
-    println("===== Kotlin Collections =====")
+private fun week04Collections(){
+    println("== Kotlin Collections ==")
 
-    val fruits = listOf("apple", "banana", "orange") // 수정불가(읽기전용)
-    val mutableFruits = mutableListOf("kiwu", "watermelon") // 수정가능
+    val fruits = listOf("apple", "banana", "orange")
+    val mutableFruits = mutableListOf("kiwi", "watermelon")
 
-//    fruits.add("kiwi") immutable
-    println("Fruits: $fruits")
+    //fruits.add("kiwi")
+    println("Fruits : $fruits")
     mutableFruits.add("banana")
-    println("Mutable fruits: $mutableFruits")
+    println("Mutable fruits : $mutableFruits")
 
     val scores = mapOf("Kim" to 100, "Park" to 97, "Lee" to 99)
-    println("Scores: $scores")
+    println("Scores : $scores")
 
     for(fruit in mutableFruits){
         println("I like $fruit")
     }
 
-        scores.forEach{(name, score) -> println("$name scored $score")}
-        fruits.forEach { fruit -> println("$fruit") }
-
+    scores.forEach{(name, score) -> println("$name scored $score")}
+    fruits.forEach { fruit -> println("$fruit") }
 }
-    private fun week04Classes() {
 
-    class Student {
-        var name: String = ""
-        var age: Int = 0
+private fun week04Classes(){
+    Log.d("KotlinWeek04", "== Kotlin Classes ==")
 
+    class Person(val name: String, var age: Int){
         fun introduce(){
-            println("Hi, I'm $name and I'm $age years old")
+            Log.d("KotlinWeek04", "안녕하세요, $name ($age 세)입니다.")
         }
-    } // 첫 번째 방법
+        fun birthday(){
+            age++
+            Log.d("KotlinWeek04", "$name 의 생일! 이제 $age 세...")
+        }
+    }
+    val person1 = Person("홍길동", 27)
+    person1.introduce()
+    person1.birthday()
 
-        var student1 = Student()
-        student1.name = "Mirae"
-        student1.age = 21
-        student1.introduce()
-
-        data class Person(val name: String, val age: Int) // 두 번째 방법
-
-        val Person1 = Person("kim", 23)
-        val Person2 = Person("lee", 25)
-
-        println("Person1 : $Person1")
-        println("Person1 : ${Person1.name}")
-        println("Person1 : ${Person1.age}")
-        println("Person2 : $Person2")
+    class Animal(var species: String){
+        var weight: Double = 0.0
+        constructor(species: String, weight: Double) : this(species){
+            this.weight = weight
+            Log.d("KotlinWeek04", "$species 의 무게 : $weight kg")
+        }
+        fun makeSound(){
+            Log.d("KotlinWeek04", "$species 가 소리를 냅니다.")
+        }
+    }
+    val puppy = Animal("웰시코기", 10.5)
+    puppy.makeSound()
 }
 
-    private fun week03Variabes() {
-        println("Week 03: Variables")
 
-        val courseName = "Moblie Programming" // java final
-        // courseName = "date" // 에러
+private fun week02Functions(){
+//    println("Week 02: Functions")
+//
+//    fun greet(name: String) = "Hello, $name!"
+//
+//    println(greet("Android developer"))
 
-        var week = 2
-        week = 3
-        println("Course : $courseName")
-        println("Week : $week")
-
-        println("========= Kotlin Variables =========")
-
-        // val(immutable) vs var(mutable)
-        val name = "Android"
-        var version = 8
-        println("Hi $name $version")
-
-        val age: Int = 24
-        val height: Double = 177.5
-        val isStudent: Boolean = false
-
-        println("age: $age")
-        println("height: $height")
-        println("isStudent: $isStudent")
-
-        // var nickName:String = null
-        var nickName:String? = null
-        nickName = "mirae"
-        println("NickName: $nickName ${nickName?.length}")
-
-
-        }
-    private fun week03Functions(){
-    println("Week 03: Functions")
-
-    // fun greet(name: String) = "Hello, $name!"
-
-    // println(greet("Android developer"))
-
-        println("== Kotlin Functions ==")
-
-        fun printAll(vip: Boolean, name : String){
-            println("$vip, $name")
-        }
-
-    fun printMany(vararg msg : String){ // variable arguments
-        for(m in msg) println(m)
-    }
-
-
-        // 순서 상관 없음
-        printAll(true, "dy")
-        printAll(name = "mirae", vip = true) // named arguments
-
-        printMany("A", "B", "C", "D")
+    println("== Kotlin Functions ==")
 
     fun greet(name: String): String {
-            return "Hello, $name!"
-        }
-
-        fun add(a: Int, b: Int) = a + b
-
-        fun introduce(name: String, age: Int = 19){
-            println("My name is $name and I'm $age years old")
-        }
-
-        println(greet("Kotlin"))
-        println("Sum: ${add(5, -71)}")
-        introduce("Kim", 7)
-        introduce("Park")
+        return "Hello, $name!"
     }
 
+    fun add(a: Int, b: Int) = a + b
+
+    fun introduce(name: String, age: Int = 19){
+        println("My name is $name and I'm $age years old")
+    }
+
+    println(greet("Kotlin"))
+    println("Sum: ${add(5, -71)}")
+    introduce("Kim", 7)
+    introduce("Park")
+}
+
+private fun week02Variables(){
+//    println("Week 02: Variables")
+//
+//    val courseName = "Mobile Programming"
+//    //courseName = "IoT Programming"
+//    var week = 1
+//    week = 2
+//    println("Course : $courseName")
+//    println("Week : $week")
+
+    println("== Kotlin Variables ==")
+
+    // val(immutable) vs var(mutable)
+    val name = "Android"
+    var version = 8
+
+    println("Hello $name $version")
+
+    val age: Int = 24
+    val height: Double = 177.7
+    val isStudent: Boolean = false
+
+    println("Age: $age, Height: $height, Student: $isStudent")
+
+    //var nickname: String = null
+    var nickname: String? = null
+    nickname = "mirae"
+    println("Nickname: $nickname ${nickname?.length}")
+}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
